@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo">
+<header id="header" ng-include="'/views/header.html'"></header>
+<div class="content" id="contentcontainer"  ng-controller="RecipeController">
+<ul>
+<li>
+<div class="recipecontainer"> 
+<div class="recipeimage newrecipe"> <a href="#new">
+<h2>+</h2></a>
+</div> 
+</div>
+</li>
+<li ng-repeat="recipe in allRecipes">
+<div class="recipecontainer"> 
+<div class="recipeimage center-cropped" style="background-image: url('../images/{{recipe.recipeImage}}')"> 
+<div class="recipeid"><p>{{recipe.recipeName}}</p></div>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+<div class="container">
+    <div class="row">
+        <label>Recipe</label> <input type="text" ng-model="recipeDto.recipeName" class="input-sm spacing"/>
+         <label>Image</label> <input type="text" ng-model="recipeDto.recipeImage" class="input-sm spacing"/>
+        <label>Tags</label> <input type="text" ng-model="tags" ng-list class="input-sm custom-width spacing"
+                                     placeholder="use comma to separate tags"/>
+  		<label>Steps</label> <input type="text" ng-model="recipeDto.recipeSteps" ng-list=";" class="input-sm custom-width spacing"
+                                     placeholder="use semicolon to separate tags"/>
+        <button ng-click="saveRecipe()" class="btn btn-sm btn-info">Save Recipe</button>
+    </div>
+    <hr/>
+    <div class="row">
+        <p>{{allRecipes | json}}</p>
+    </div>
+    <hr/>
+    <div class="row" ng-repeat="recipe in allRecipes">
+        <div class="">
+            <h3>{{recipe.recipeName}}</h3>
+            <span>{{recipe.recipeImage}}</span>
+            <span ng-repeat="tag in recipe.tagDtos" class="spacing">{{tag.tagName}}</span>
+             <span ng-repeat="step in recipe.recipeSteps track by $index" class="spacing">{{step}}</span>
+        </div>
+    </div>
+</div>
+</body>
+
+
+
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/RecipeController.js"></script>
+<script src="js/app/RecipeService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+<link rel="stylesheet" href="css/app/header.css">
+<link href="https://fonts.googleapis.com/css?family=Bitter|Permanent+Marker" rel="stylesheet">
+
+<script>
+window.onscroll = function() {myFunction()};
+function myFunction() {
+var header = document.getElementById("contentcontainer");
+var stickyheader = document.getElementById("stickyheader");
+var sticky = contentcontainer.offsetTop;
+
+  if (window.pageYOffset > sticky) {
+    stickyheader.classList.add("opaque");
+  } else {
+    stickyheader.classList.remove("opaque");
+  }
+}
+</script>
+</html>

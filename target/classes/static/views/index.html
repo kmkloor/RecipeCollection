@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Main Page</title>
+</head>
+<body ng-app="demo" ng-controller="RecipeController">
+<header id="header" ng-include="'/views/header.html'"></header>
+<div id ="addcontainer" class="container">
+    
+</div>
+<div class="content" id="contentcontainer" >
+<ul>
+<li id="addnew" class="ease">
+<div id="newrecipecontainer"> 
+<div class="recipeimage newrecipe"> <a onclick="addRecipe()" ng-click="blankRecipe()" >
+<h2>+</h2></a>
+</div> 
+</div>
+<div id="addrecipecontainer"> 
+<div class="recipeimage"> 
+<div class="row">
+		<div class="invisible"><label>RecipeId</label> <input type="text" ng-model="recipeDto.recipeId" class="input-sm spacing" value="allRecipes.length"/></div>
+        <label>Recipe</label> <input type="text" ng-model="recipeDto.recipeName" ng-change="changeName()" class="input-sm spacing"/>
+         <label>Image</label> <input type="text" ng-model="recipeDto.recipeImage" ng-change="changeImage()" class="input-sm spacing"  placeholder="image url"/>
+        <label>Tags</label> <input type="text" ng-model="tags" ng-list class="input-sm custom-width spacing"
+                                     placeholder="use comma to separate tags"/>
+  		<label>Steps</label> <input type="text" ng-model="recipeDto.recipeSteps" ng-list="&#10" class="input-sm custom-width spacing"
+                                     placeholder="use semicolon to separate tags"/>
+        <button onclick="removeRecipe()" ng-click="editRecipe(allRecipes.length)"  class="btn btn-sm btn-info">Save Recipe</button>
+    </div>
+    </div>
+<div id="preview" class="recipeimage center-cropped" style="background-image: url('{{tempImage}}')"> 
+<div class="recipeid"><p>{{tempName}}</p></div>
+</div>
+</div> 
+</li>
+<li ng-repeat="recipe in allRecipes">
+<div class="recipecontainer" id = "{{recipe.recipeId}}" style=""> 
+<div class="recipeimage center-cropped" style="background-color: {{recipe.recipeColor}}; background-image: url('{{recipe.recipeImage}}');"> 
+<div class="recipeid"><p>{{recipe.recipeName}}</p></div>
+</div>
+</div>
+</li>
+
+</ul>
+</div>
+
+</body>
+
+
+
+<script src="js/lib/angular.min.js"></script>
+<script src="js/lib/ui-bootstrap-tpls-2.5.0.min.js"></script>
+<script src="js/app/app.js"></script>
+<script src="js/app/RecipeController.js"></script>
+<script src="js/app/RecipeService.js"></script>
+<link rel="stylesheet" href="css/lib/bootstrap.min.css"/>
+<link rel="stylesheet" href="css/app/app.css"/>
+<link rel="stylesheet" href="css/app/header.css">
+<link href="https://fonts.googleapis.com/css?family=Bitter|Permanent+Marker" rel="stylesheet">
+
+<script>
+window.onscroll = function() {myFunction()};
+function myFunction() {
+var header = document.getElementById("contentcontainer");
+var stickyheader = document.getElementById("stickyheader");
+var sticky = contentcontainer.offsetTop;
+
+  if (window.pageYOffset > sticky) {
+    stickyheader.classList.add("opaque");
+  } else {
+    stickyheader.classList.remove("opaque");
+  }
+}
+
+function addRecipe() {
+ 	
+	 document.getElementById("newrecipecontainer").className = "invisible";
+	 document.getElementById("addrecipecontainer").className = "visible";
+	 document.getElementById("addrecipecontainer").className = "visible";
+	 document.getElementById("addnew").className = "doublecolumn";
+	}
+	
+function removeRecipe(){
+	
+	
+	 document.getElementById("addrecipecontainer").className = "invisible";	 
+	 document.getElementById("newrecipecontainer").className = "visible"; 
+	 document.getElementById("addnew").className = "singlecolumn";
+	 
+}
+window.onload = function() {
+    document.body.className += " loaded";
+}
+</script>
+</html>

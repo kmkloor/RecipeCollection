@@ -1,0 +1,160 @@
+:root {
+font-size: 16px;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+}
+
+.fadein {
+    opacity: 0;
+    -moz-transition: opacity 1.5s;
+    -webkit-transition: opacity 1.5s;
+    -o-transition: opacity 1.5s;
+    transition: opacity 1.5s;
+}
+
+#body.loaded .fadein {
+    opacity: 1;
+}
+
+#contentcontainer {
+	padding-top: 2rem;
+}
+.content ul{
+	display: grid;
+	grid-template-columns: repeat(auto-fill, 360px);
+	grid-gap: 3rem;
+	justify-content: center;
+	 width: 90%;
+ 	 margin: 0 auto;
+	 padding: 1rem;
+   list-style: none;
+}
+
+.content li {
+	  height: 360px;
+}
+
+.recipecontainer{
+	 transition: background .5s ease-out;	
+}
+
+.recipeimage{
+	background-color: #fff ;
+	height: 360px;
+	width: 360px;
+	transition: background-color 1s ease-out;
+}
+
+.newrecipe {
+
+	display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.newrecipe h2{
+	margin: 0;
+	color: #fff;
+	font-size: 16em;
+	line-height: unset;
+}
+
+.newrecipe a{
+	text-decoration:none;
+	height:100%;
+	width: 100%;
+	background:	#1ED8D0;
+				 -webkit-transition: background-color 2s ease-out;
+	-moz-transition: background-color 2s ease-out;
+	-o-transition: background-color 2s ease-out;
+	transition: background-color 2s ease-out;
+
+}
+
+.newrecipe a:hover{
+	margin: 0;
+	padding: 33;
+	width: 22.5rem;
+	background:	#122824;
+	text-decoration:none;
+	 -webkit-transition: background-color 2s ease-out;
+	-moz-transition: background-color 2s ease-out;
+	-o-transition: background-color 2s ease-out;
+	transition: background-color 2s ease-out;
+}
+
+.recipeid{
+	background:rgba(255,255,255,0.7);
+	position: relative;
+	display: inline-block;
+	float:right;
+	top: 20px;
+	z-index: 0;
+}
+.recipeid p{
+	margin: 0;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.5em;
+	padding: 0 10px;
+}
+
+
+.center-cropped {
+	background-size:cover;   
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.center-text{
+ text-align: center;
+}
+
+.doublecolumn{	
+	width:48rem;
+
+}
+
+.singlecolumn{	
+	 width:22.5rem;
+	 -webkit-transition: width 3s;
+	 transition: width 3s;
+}
+
+#addrecipecontainer {
+	position: relative; 
+	top: -360px;
+	width:100%;
+	visibility: collapse;
+	opacity: 0;
+	display:flex;
+	flex-direction:horizontal;
+}
+
+#preview{
+	margin-left: 3rem;
+}
+
+.visible {
+  visibility: visible !important;
+  opacity: 1 !important;
+  transition: opacity 2s linear;
+}
+.invisible {
+  visibility: collapse;
+  opacity: 0;
+  transition: visibility 0s 2s, opacity 2s linear;
+}
+
+span.spacing{
+    margin-right: 10px;
+}
+input.custom-width{
+    width: 200px;
+}
+input.spacing{
+    margin-right: 5px;
+}
+

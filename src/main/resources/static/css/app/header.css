@@ -1,0 +1,72 @@
+@font-face {
+   font-family: Sabado;
+   src: url(../../fonts/Sabado.otf);
+}
+
+#header {
+height: 30em;
+}
+
+#stickyheader {   
+	
+	position: fixed;
+	height: 3em;
+	top: 0;
+	width: 100%;
+	padding: 10px 10px;
+	display: flex;
+    align-items: center;
+    justify-content: space-between;
+	z-index: 1;
+}
+
+#name{
+	font-size: 1.7em;
+	margin-top: -0.35em;
+	padding: 0 30px;
+}
+
+#menu{
+	   display: flex;
+}
+
+.menu-item p{
+	margin: 0;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.5em;
+	padding:0 30px;
+}
+
+#stickyheader h2{
+ 	margin: 0;
+	font-family: Sabado;
+}
+
+.transparent {
+	background:rgba(255,255,255,0.5);
+	color: #fff;
+}
+
+.opaque {
+	background:rgba(255,255,255,1);
+	color: #000;
+}
+
+#mainheader{
+	background-image: url('../../images/oranges.jpg');	
+	width: 100%;
+	height:100%;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+	padding-bottom: 20px;
+	
+}
+
+#mainheader h1{
+	font-family: Sabado;
+	color: #fff;
+	font-size: 8em;
+	line-height: .75em;
+}
+
